@@ -1,8 +1,8 @@
 {
-  "name": "mmm-template",
+  "name": "MMM-GoogleTasksViews",
   "version": "1.0.0",
   "description": "[Module description]",
-  "main": "MMM-Template.js",
+  "main": "GoogleTasksViews.js",
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -13,7 +13,7 @@
     "url": "git+[GitHub url].git"
   },
   "keywords": [
-    "template"
+    "GoogleTasksViews"
   ],
   "author": "[Author]",
   "license": "MIT",
