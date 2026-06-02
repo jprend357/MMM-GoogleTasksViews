@@ -1,5 +1,7 @@
 .MMM-GoogleTasksViews {
+  margin-inline: auto;
   max-width: 620px;
+  width: min(620px, 44vw);
 }
 
 .mmm-google-tasks {
@@ -8,7 +10,7 @@
   line-height: 1.18;
   text-align: left;
   text-shadow: 0 0 2px #000;
-  width: min(620px, 44vw);
+  width: 100%;
 }
 
 .mmm-google-tasks__header {
