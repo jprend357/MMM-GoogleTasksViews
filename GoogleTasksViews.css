@@ -1,12 +1,12 @@
 .MMM-GoogleTasksViews {
   margin-inline: auto;
-  max-width: 420px;
-  width: min(420px, 32vw);
+  max-width: 360px;
+  width: min(360px, 28vw);
 }
 
 .mmm-google-tasks {
   color: #f2f6fb;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.18;
   text-align: left;
   text-shadow: 0 0 2px #000;
@@ -16,7 +16,7 @@
 .mmm-google-tasks__header {
   border-bottom: 1px solid rgb(180 205 235 / 72%);
   color: #cfe4ff;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
   margin-bottom: 6px;
   padding-bottom: 3px;
@@ -29,7 +29,7 @@
 
 .mmm-google-tasks__group-title {
   color: #9fc8ff;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   margin-bottom: 2px;
   text-transform: uppercase;
@@ -65,7 +65,7 @@
 
 .mmm-google-tasks__due {
   color: #d5dde8;
-  font-size: 13px;
+  font-size: 12px;
   grid-column: 3;
   white-space: nowrap;
 }
