@@ -1,71 +1,81 @@
-# MMM-Template
-Use this template for creating new MagicMirror² modules.
+# MMM-GoogleTasksViews
 
-See the [wiki page](https://github.com/Dennis-Rosenbaum/MMM-Template/wiki) for an in depth overview of how to get started.
+MagicMirror module for displaying Google Tasks in a compact, read-only view.
 
-# MMM-Template
-
-![Example of MMM-Template](./example_1.png)
-
-[Module description]
+The first version uses a local OAuth token file, fetches active Google Tasks from selected lists, and renders them in a dense grouped layout intended for the center/lower-middle area of a MagicMirror screen.
 
 ## Installation
 
-### Install
-
-In your terminal, go to your [MagicMirror²][mm] Module folder and clone MMM-Template:
-
 ```bash
 cd ~/MagicMirror/modules
-git clone [GitHub url]
+git clone https://github.com/jprend357/MMM-GoogleTasksViews.git
+cd MMM-GoogleTasksViews
+npm install
 ```
 
-### Update
+## Google Tasks OAuth Setup
+
+1. In Google Cloud Console, enable the Google Tasks API for the project you want to use.
+2. Configure the OAuth consent screen if that project has not already been configured.
+3. Create an OAuth Client ID with application type `Desktop app`.
+4. Download the OAuth client JSON.
+5. Save it in this module as `.auth/google-tasks-credentials.json`.
+6. Run the local POC once:
 
 ```bash
-cd ~/MagicMirror/modules/MMM-Template
-git pull
+npm run poc:tasks
 ```
 
-## Using the module
+7. Accept the browser OAuth prompt for the Google account whose tasks should appear.
 
-To use this module, add it to the modules array in the `config/config.js` file:
+The POC creates `.auth/google-tasks-token.json`. Both OAuth files live in `.auth/`, which is ignored by git. Do not commit credentials or token files.
+
+## MagicMirror Configuration
+
+Add the module to `config/config.js`:
 
 ```js
-    {
-        module: 'MMM-Template',
-        position: 'lower_third'
-    },
+{
+  module: "MMM-GoogleTasksViews",
+  position: "lower_third",
+  config: {
+    maxTasks: 20,
+    updateInterval: 10 * 60 * 1000,
+    taskListTitles: [
+      "Jack Prendergast's list",
+      "House",
+      "Car",
+      "Buy",
+      "Beach",
+    ],
+  },
+},
 ```
 
-Or you could use all the options:
+## Configuration Options
 
-```js
-    {
-        module: 'MMM-Template',
-        position: 'lower_third',
-        config: {
-            exampleContent: 'Welcome world'
-        }
-    },
-```
+Option | Default | Description
+------ | ------- | -----------
+`updateInterval` | `10 * 60 * 1000` | Refresh interval in milliseconds.
+`maxTasks` | `20` | Maximum number of tasks shown across all selected lists.
+`taskListIds` | `[]` | Google Tasks list IDs to include. If empty, title filtering can be used.
+`taskListTitles` | Current personal lists | Google Tasks list titles to include.
+`credentialsPath` | `.auth/google-tasks-credentials.json` | OAuth client JSON path, relative to this module unless absolute.
+`tokenPath` | `.auth/google-tasks-token.json` | OAuth token JSON path, relative to this module unless absolute.
+`showDueDates` | `true` | Show due dates beside task titles when Google provides them.
 
-## Configuration options
+If both `taskListIds` and `taskListTitles` are empty, the module displays all visible task lists returned by the Google Tasks API.
 
-Option|Possible values|Default|Description
-------|------|------|-----------
-`exampleContent`|`string`|not available|The content to show on the page
+## Developer Commands
 
-## Sending notifications to the module
-
-Notification|Description
-------|-----------
-`TEMPLATE_RANDOM_TEXT`|Payload must contain the text that needs to be shown on this module
-
-## Developer commands
-
-- `npm install` - Install devDependencies like ESLint.
+- `npm install` - Install dependencies.
 - `npm run lint` - Run linting and formatter checks.
 - `npm run lint:fix` - Fix linting and formatter issues.
+- `npm run poc:tasks` - Run the local Google Tasks read-only connectivity POC.
 
-[mm]: https://github.com/MagicMirrorOrg/MagicMirror
+## Notes
+
+- This module is read-only. It does not create, update, complete, or delete tasks.
+- Completed, deleted, and hidden tasks are excluded from the display.
+- If more active tasks exist than `maxTasks`, the header shows a `+` after the displayed count.
+- A future version can add rotation or automatic scrolling so unseen overflow tasks get screen time without making the first view busier.

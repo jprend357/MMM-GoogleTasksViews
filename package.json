@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "poc:tasks": "node scripts/google-tasks-poc.js",
     "test": "npm run lint"
   },
   "repository": {
@@ -17,6 +18,10 @@
   ],
   "author": "[Author]",
   "license": "MIT",
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "googleapis": "^105.0.0"
+  },
   "bugs": {
     "url": "[GitHub url]/issues"
   },

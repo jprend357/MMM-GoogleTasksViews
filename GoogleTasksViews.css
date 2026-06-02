@@ -1,3 +1,78 @@
-.MMM-GoogleTasksViews div {
-    color: purple;
+.MMM-GoogleTasksViews {
+  max-width: 620px;
+}
+
+.mmm-google-tasks {
+  color: #f2f6fb;
+  font-size: 16px;
+  line-height: 1.18;
+  text-align: left;
+  text-shadow: 0 0 2px #000;
+  width: min(620px, 44vw);
+}
+
+.mmm-google-tasks__header {
+  border-bottom: 1px solid rgb(180 205 235 / 72%);
+  color: #cfe4ff;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  padding-bottom: 3px;
+  text-transform: uppercase;
+}
+
+.mmm-google-tasks__group {
+  margin: 0 0 7px;
+}
+
+.mmm-google-tasks__group-title {
+  color: #9fc8ff;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+}
+
+.mmm-google-tasks__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mmm-google-tasks__task {
+  align-items: baseline;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  min-height: 18px;
+}
+
+.mmm-google-tasks__task::before {
+  color: #9fc8ff;
+  content: "-";
+  grid-column: 1;
+}
+
+.mmm-google-tasks__task-title {
+  color: #f4f7fb;
+  grid-column: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mmm-google-tasks__due {
+  color: #d5dde8;
+  font-size: 13px;
+  grid-column: 3;
+  white-space: nowrap;
+}
+
+.mmm-google-tasks__status {
+  color: #d5dde8;
+  font-size: 15px;
+}
+
+.mmm-google-tasks__status--error {
+  color: #ffb4a8;
 }
