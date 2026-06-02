@@ -85,14 +85,23 @@ Module.register("MMM-GoogleTasksViews", {
     }
 
     wrapper.appendChild(this.renderHeader(`Google Tasks (${this.result.displayedTasks}${this.result.truncated ? "+" : ""})`))
+    wrapper.appendChild(this.renderGroups(this.result.groups))
 
-    for (const group of this.result.groups) {
+    return wrapper
+  },
+
+  renderGroups(groups) {
+    const groupsWrapper = document.createElement("div")
+
+    groupsWrapper.className = "mmm-google-tasks__groups"
+
+    for (const group of groups) {
       if (group.tasks.length) {
-        wrapper.appendChild(this.renderTaskGroup(group))
+        groupsWrapper.appendChild(this.renderTaskGroup(group))
       }
     }
 
-    return wrapper
+    return groupsWrapper
   },
 
   fetchTasks() {

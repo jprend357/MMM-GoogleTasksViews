@@ -23,8 +23,16 @@
   text-transform: uppercase;
 }
 
+.mmm-google-tasks__groups {
+  column-count: 2;
+  column-gap: 16px;
+}
+
 .mmm-google-tasks__group {
+  break-inside: avoid;
+  display: inline-block;
   margin: 0 0 7px;
+  width: 100%;
 }
 
 .mmm-google-tasks__group-title {
@@ -42,11 +50,12 @@
 }
 
 .mmm-google-tasks__task {
-  align-items: baseline;
+  align-items: start;
   display: grid;
-  gap: 10px;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  min-height: 18px;
+  gap: 2px 6px;
+  grid-template-columns: auto minmax(0, 1fr);
+  margin-bottom: 2px;
+  min-height: 17px;
 }
 
 .mmm-google-tasks__task::before {
@@ -58,15 +67,16 @@
 .mmm-google-tasks__task-title {
   color: #f4f7fb;
   grid-column: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  max-width: min(30ch, 100%);
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .mmm-google-tasks__due {
   color: #d5dde8;
   font-size: 12px;
-  grid-column: 3;
+  grid-column: 2;
+  line-height: 1;
   white-space: nowrap;
 }
 
