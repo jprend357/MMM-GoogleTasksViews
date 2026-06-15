@@ -1,7 +1,9 @@
 .MMM-GoogleTasksViews {
-  margin-inline: auto;
-  max-width: 360px;
-  width: min(360px, 28vw);
+  margin-left: calc(50% - 180px);
+  margin-right: 0;
+  max-width: 680px;
+  transform: translateY(-30px);
+  width: min(680px, 54vw);
 }
 
 .mmm-google-tasks {
@@ -25,7 +27,7 @@
 
 .mmm-google-tasks__groups {
   column-count: 2;
-  column-gap: 16px;
+  column-gap: 22px;
 }
 
 .mmm-google-tasks__group {
@@ -67,7 +69,7 @@
 .mmm-google-tasks__task-title {
   color: #f4f7fb;
   grid-column: 2;
-  max-width: min(30ch, 100%);
+  max-width: min(60ch, 100%);
   overflow-wrap: anywhere;
   white-space: normal;
 }
