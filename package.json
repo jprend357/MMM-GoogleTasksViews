@@ -7,7 +7,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "poc:tasks": "node scripts/google-tasks-poc.js",
-    "test": "npm run lint"
+    "test": "npm run lint && node tests/normalize-task.test.js"
   },
   "repository": {
     "type": "git",
