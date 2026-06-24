@@ -41,9 +41,6 @@ Add the module to `config/config.js`:
   config: {
     maxTasks: 20,
     updateInterval: 10 * 60 * 1000,
-    highlightStarredTasks: true,
-    starredTitlePrefixes: ["* ", "\u2605 ", "\u2B50 "],
-    starredTaskClass: "starred",
     taskListTitles: [
       "Jack Prendergast's list",
       "House",
@@ -66,9 +63,6 @@ Option | Default | Description
 `credentialsPath` | `.auth/google-tasks-credentials.json` | OAuth client JSON path, relative to this module unless absolute.
 `tokenPath` | `.auth/google-tasks-token.json` | OAuth token JSON path, relative to this module unless absolute.
 `showDueDates` | `true` | Show due dates beside task titles when Google provides them.
-`highlightStarredTasks` | `true` | Highlight starred tasks when the API exposes a star-like field or the title starts with a configured prefix.
-`starredTitlePrefixes` | `["* ", "\u2605 ", "\u2B50 "]` | Title prefixes that mark a task as starred when Google does not expose starred state. Prefixes are stripped only for display.
-`starredTaskClass` | `"starred"` | CSS class suffix used for highlighted tasks.
 
 If both `taskListIds` and `taskListTitles` are empty, the module displays all visible task lists returned by the Google Tasks API.
 
@@ -78,12 +72,10 @@ If both `taskListIds` and `taskListTitles` are empty, the module displays all vi
 - `npm run lint` - Run linting and formatter checks.
 - `npm run lint:fix` - Fix linting and formatter issues.
 - `npm run poc:tasks` - Run the local Google Tasks read-only connectivity POC.
-- `npm run debug:tasks -- test` - Print raw Google Tasks API data for active tasks matching `test`.
 
 ## Notes
 
 - This module is read-only. It does not create, update, complete, or delete tasks.
 - Completed, deleted, and hidden tasks are excluded from the display.
-- Starred detection first checks raw task fields named `starred`, `isStarred`, `favorite`, or `important`, then falls back to configured title prefixes.
 - If more active tasks exist than `maxTasks`, the header shows a `+` after the displayed count.
 - A future version can add rotation or automatic scrolling so unseen overflow tasks get screen time without making the first view busier.

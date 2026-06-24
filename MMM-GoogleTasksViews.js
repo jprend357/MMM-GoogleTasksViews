@@ -14,9 +14,6 @@ Module.register("MMM-GoogleTasksViews", {
     credentialsPath: ".auth/google-tasks-credentials.json",
     tokenPath: ".auth/google-tasks-token.json",
     showDueDates: true,
-    highlightStarredTasks: true,
-    starredTitlePrefixes: ["* ", "\u2605 ", "\u2B50 "],
-    starredTaskClass: "starred",
   },
 
   getStyles() {
@@ -162,9 +159,6 @@ Module.register("MMM-GoogleTasksViews", {
     const title = document.createElement("span")
 
     item.className = "mmm-google-tasks__task"
-    if (this.config.highlightStarredTasks && task.isStarred) {
-      item.classList.add(`mmm-google-tasks__task--${this.config.starredTaskClass}`)
-    }
     title.className = "mmm-google-tasks__task-title"
     title.textContent = task.title
     item.appendChild(title)
