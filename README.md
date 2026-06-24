@@ -78,6 +78,7 @@ If both `taskListIds` and `taskListTitles` are empty, the module displays all vi
 - `npm run lint` - Run linting and formatter checks.
 - `npm run lint:fix` - Fix linting and formatter issues.
 - `npm run poc:tasks` - Run the local Google Tasks read-only connectivity POC.
+- `npm run debug:tasks -- test` - Print raw Google Tasks API data for active tasks matching `test`.
 
 ## Notes
 

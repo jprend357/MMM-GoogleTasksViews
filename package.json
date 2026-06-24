@@ -4,6 +4,7 @@
   "description": "[Module description]",
   "main": "GoogleTasksViews.js",
   "scripts": {
+    "debug:tasks": "node scripts/google-tasks-debug.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "poc:tasks": "node scripts/google-tasks-poc.js",
